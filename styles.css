@@ -1860,21 +1860,21 @@ h1, h2, h3, h4, h5, h6 {
         padding: 0 16px;
     }
 
-    /* Mobile Navigation - Slide-in Panel */
+    /* Mobile Navigation - Clean Slide-in Panel */
     .nav-menu {
         position: fixed;
         top: 0;
         right: -100%;
-        width: 85%;
-        max-width: 320px;
+        width: 75%;
+        max-width: 280px;
         height: 100vh;
         height: 100dvh;
-        background: linear-gradient(180deg, var(--cream) 0%, var(--cream-dark) 100%);
+        background: var(--cream);
         flex-direction: column;
         justify-content: flex-start;
-        padding: 100px 32px 40px;
-        transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        box-shadow: -10px 0 40px rgba(0, 0, 0, 0.15);
+        padding: 80px 24px 32px;
+        transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: -4px 0 24px rgba(0, 0, 0, 0.12);
         z-index: 1000;
         gap: 0;
     }
@@ -1886,11 +1886,17 @@ h1, h2, h3, h4, h5, h6 {
     .nav-link {
         color: var(--brown-dark);
         text-shadow: none;
-        font-size: 1.1rem;
-        padding: 16px 0;
-        border-bottom: 1px solid rgba(74, 55, 40, 0.1);
+        font-size: 0.95rem;
+        font-weight: 500;
+        padding: 14px 0;
+        border-bottom: 1px solid rgba(74, 55, 40, 0.08);
         width: 100%;
         text-align: left;
+        letter-spacing: 0.3px;
+    }
+
+    .nav-link:last-of-type {
+        border-bottom: none;
     }
 
     .nav-link::after {
@@ -1902,11 +1908,9 @@ h1, h2, h3, h4, h5, h6 {
         color: var(--primary);
     }
 
+    /* Hide the Order Now CTA in mobile menu - users can find it in the page */
     .nav-cta {
-        display: block;
-        margin-top: 24px;
-        text-align: center;
-        width: 100%;
+        display: none;
     }
 
     .hamburger {
@@ -1920,7 +1924,7 @@ h1, h2, h3, h4, h5, h6 {
     }
 
     .hamburger.active span:nth-child(1) {
-        transform: rotate(45deg) translate(6px, 6px);
+        transform: rotate(45deg) translate(5px, 5px);
     }
 
     .hamburger.active span:nth-child(2) {
@@ -1928,7 +1932,7 @@ h1, h2, h3, h4, h5, h6 {
     }
 
     .hamburger.active span:nth-child(3) {
-        transform: rotate(-45deg) translate(6px, -6px);
+        transform: rotate(-45deg) translate(5px, -5px);
     }
 
     /* Mobile Menu Overlay */
@@ -1936,8 +1940,41 @@ h1, h2, h3, h4, h5, h6 {
         content: '';
         position: fixed;
         inset: 0;
-        background: rgba(0, 0, 0, 0.5);
+        background: rgba(0, 0, 0, 0.4);
         z-index: 999;
+    }
+
+    /* Mobile Navbar - Compact */
+    .navbar {
+        padding: 10px 0;
+    }
+
+    .navbar.scrolled {
+        padding: 8px 0;
+    }
+
+    .nav-container {
+        padding: 0 16px;
+    }
+
+    .nav-logo img {
+        height: 44px;
+        width: 44px;
+    }
+
+    .navbar.scrolled .nav-logo img {
+        height: 40px;
+        width: 40px;
+    }
+
+    .hamburger {
+        padding: 6px;
+        gap: 5px;
+    }
+
+    .hamburger span {
+        width: 24px;
+        height: 2.5px;
     }
 
     /* Hero Mobile */
