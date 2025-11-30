@@ -29,9 +29,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (hamburger && navMenu) {
         hamburger.addEventListener('click', function() {
+            const isOpen = navMenu.classList.contains('active');
             hamburger.classList.toggle('active');
             navMenu.classList.toggle('active');
-            document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
+            document.body.classList.toggle('menu-open', !isOpen);
+            document.body.style.overflow = !isOpen ? 'hidden' : '';
         });
 
         // Close menu when clicking a link
@@ -40,8 +42,31 @@ document.addEventListener('DOMContentLoaded', function() {
             link.addEventListener('click', function() {
                 hamburger.classList.remove('active');
                 navMenu.classList.remove('active');
+                document.body.classList.remove('menu-open');
                 document.body.style.overflow = '';
             });
+        });
+
+        // Close menu when clicking outside (on the overlay)
+        document.addEventListener('click', function(e) {
+            if (navMenu.classList.contains('active') &&
+                !navMenu.contains(e.target) &&
+                !hamburger.contains(e.target)) {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+                document.body.classList.remove('menu-open');
+                document.body.style.overflow = '';
+            }
+        });
+
+        // Close menu on escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+                document.body.classList.remove('menu-open');
+                document.body.style.overflow = '';
+            }
         });
     }
 
