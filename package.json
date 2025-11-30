@@ -1,0 +1,9 @@
+{
+  "name": "chubby-banh-mi",
+  "version": "1.0.0",
+  "description": "Chubby Banh Mi & Bubble Tea - Restaurant Landing Page",
+  "scripts": {
+    "dev": "npx live-server --port=3000",
+    "start": "npx serve -l 3000"
+  }
+}
